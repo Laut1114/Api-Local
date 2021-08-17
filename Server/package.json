@@ -14,9 +14,9 @@
   "author": "Lautaro San Martin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Laut1114/Api-Tienda/issues"
+    "url": "https://github.com/Laut1114/Api---Tp-Programacion/issues"
   },
-  "homepage": "https://github.com/Laut1114/Api-Tienda#readme",
+  "homepage": "https://github.com/Laut1114/Api---Tp-Programacion#readme",
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
