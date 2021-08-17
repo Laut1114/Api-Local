@@ -1,6 +1,7 @@
 import { Router } from "express";
+import ordenesController from "../controllers/ordenController";
 
-class OrdenRoute {
+class OrdenesRoutes {
     router: Router = Router();
 
     constructor() {
@@ -8,9 +9,12 @@ class OrdenRoute {
     }
 
     config(): void {
-        this.router.get('/orden', (req, res) => res.send("Ruta Producto"));
+        this.router.get('/orden', ordenesController.getOrdenes);
+        this.router.post('/orden', ordenesController.create);
+        this.router.delete('/orden:id', ordenesController.delete);
+        this.router.put('/orden:id', ordenesController.update);
     }
 }
 
-const ordenRoute = new OrdenRoute();
-export default ordenRoute;
+const ordenesRoutes= new OrdenesRoutes();
+export default ordenesRoutes;

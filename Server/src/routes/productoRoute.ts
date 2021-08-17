@@ -1,6 +1,7 @@
 import { Router } from "express";
+import productosController from "../controllers/productoController";
 
-class ProductRoute {
+class ProductosRoutes {
     router: Router = Router();
 
     constructor() {
@@ -8,9 +9,12 @@ class ProductRoute {
     }
 
     config(): void {
-        this.router.get('/producto', (req, res) => res.send("Ruta Producto"));
+        this.router.get('/producto', productosController.getProductos);
+        this.router.post('/producto', productosController.create);
+        this.router.delete('/producto:id', productosController.delete);
+        this.router.put('/producto:id', productosController.update);
     }
 }
 
-const productRoute = new ProductRoute();
-export default productRoute;
+const productosRoutes = new ProductosRoutes();
+export default productosRoutes;
