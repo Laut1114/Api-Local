@@ -8,7 +8,7 @@ class OrdenRoute {
     }
 
     config(): void {
-        this.router.get('/Orden', (req, res) => res.send("Ruta Producto"));
+        this.router.get('/orden', (req, res) => res.send("Ruta Producto"));
     }
 }
 

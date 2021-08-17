@@ -3,8 +3,9 @@ import keys from "./keys";
 
 const pool = createPool(keys.database);
 
-pool.getConnection()
-    .then(connection =>{
-        pool.releaseConnection(connection)
-        console.log('DB is connected')
-    });
+pool.getConnection().then(connection =>{
+    pool.releaseConnection(connection)
+    console.log('DB is connected')
+});
+
+export default pool;

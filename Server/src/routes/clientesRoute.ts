@@ -8,7 +8,7 @@ class ClienteRoute {
     }
 
     config(): void {
-        this.router.get('/', (req, res) => res.send("Ruta Cliente"));
+        this.router.get('/cliente', (req, res) => res.send("Ruta Cliente"));
     }
 }
 

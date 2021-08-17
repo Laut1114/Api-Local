@@ -8,7 +8,7 @@ class ProductRoute {
     }
 
     config(): void {
-        this.router.get('/productos', (req, res) => res.send("Ruta Producto"));
+        this.router.get('/producto', (req, res) => res.send("Ruta Producto"));
     }
 }
 
