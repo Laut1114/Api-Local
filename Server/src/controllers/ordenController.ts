@@ -3,7 +3,7 @@ import pool from "../database";
 
 class OrdenesController {
 
-    async getOrdenes(res: Response) {
+    async getOrdenes(req: Request, res: Response) {
         const ordenes = await pool.query('SELECT * FROM orden');
         res.json(ordenes)
     }

@@ -9,12 +9,12 @@ class ProductosRoutes {
     }
 
     config(): void {
-        this.router.get('/producto', productosController.getProductos);
-        this.router.post('/producto', productosController.create);
-        this.router.delete('/producto:id', productosController.delete);
-        this.router.put('/producto:id', productosController.update);
+        this.router.get('/productos', productosController.getProductos);
+        this.router.post('/productos', productosController.create);
+        this.router.delete('/productos:id', productosController.delete);
+        this.router.put('/productos:id', productosController.update);
     }
 }
 
 const productosRoutes = new ProductosRoutes();
-export default productosRoutes;
+export default productosRoutes.router;

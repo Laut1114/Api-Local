@@ -4,6 +4,6 @@ exports.default = {
     database: {
         host: 'localhost',
         user: 'root',
-        database: 'tienda'
+        database: 'tienda',
     }
 };

@@ -7,7 +7,7 @@ class IndexRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', (req, res) => res.send("Ruta conectada!!"));
+        this.router.get('/', (req, res) => res.send("Pagina de Inicio"));
     }
 }
 const indexRoute = new IndexRoutes();

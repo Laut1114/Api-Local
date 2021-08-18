@@ -9,12 +9,12 @@ class OrdenesRoutes {
     }
 
     config(): void {
-        this.router.get('/orden', ordenesController.getOrdenes);
-        this.router.post('/orden', ordenesController.create);
-        this.router.delete('/orden:id', ordenesController.delete);
-        this.router.put('/orden:id', ordenesController.update);
+        this.router.get('/orden_compra', ordenesController.getOrdenes);
+        this.router.post('/orden_compra', ordenesController.create);
+        this.router.delete('/orden_compra:id', ordenesController.delete);
+        this.router.put('/orden_compra:id', ordenesController.update);
     }
 }
 
 const ordenesRoutes= new OrdenesRoutes();
-export default ordenesRoutes;
+export default ordenesRoutes.router;

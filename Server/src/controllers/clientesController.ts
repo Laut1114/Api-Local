@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import pool from "../database";
 
-class ClienteController {
+class ClientesController {
 
     async getCliente(req: Request, res: Response) {
         const cliente = await pool.query('SELECT * FROM cliente');
@@ -35,5 +35,5 @@ class ClienteController {
     }
 }
 
-const clientesController = new ClienteController();
+const clientesController = new ClientesController();
 export default clientesController;

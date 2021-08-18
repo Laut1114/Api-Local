@@ -1,7 +1,7 @@
 import { Router } from "express";
 import clientesController from "../controllers/clientesController";
 
-class ClienteRoutes {
+class ClientesRoutes {
     router: Router = Router();
 
     constructor() {
@@ -9,12 +9,12 @@ class ClienteRoutes {
     }
 
     config(): void {
-        this.router.get('/cliente', clientesController.getCliente);
-        this.router.post('/cliente', clientesController.create);
-        this.router.delete('/cliente:id', clientesController.delete);
-        this.router.put('/cliente:id', clientesController.update);
+        this.router.get('/clientes', clientesController.getCliente);
+        this.router.post('/clientes', clientesController.create);
+        this.router.delete('/clientes:id', clientesController.delete);
+        this.router.put('/clientes:id', clientesController.update);
     }
 }
 
-const clientesRoutes = new ClienteRoutes();
-export default clientesRoutes;
+const clientesRoutes = new ClientesRoutes();
+export default clientesRoutes.router;

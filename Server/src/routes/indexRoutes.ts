@@ -1,14 +1,14 @@
 import { Router } from "express";
 
 class IndexRoutes {
-    public router: Router = Router();
+    router: Router = Router();
 
     constructor() {
         this.config();
     }
 
     config(): void {
-        this.router.get('/', (req, res) => res.send("Ruta conectada!!"));
+        this.router.get('/', (req, res) => res.send("Pagina de Inicio"));
     }
 }
 

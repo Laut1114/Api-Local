@@ -3,7 +3,7 @@ import pool from "../database";
 
 class ProductosController {
 
-    async getProductos(res: Response) {
+    async getProductos(req: Request, res: Response) {
         const productos = await pool.query('SELECT * FROM producto');
         res.json(productos)
     }
