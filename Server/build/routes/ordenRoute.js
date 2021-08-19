@@ -11,11 +11,11 @@ class OrdenesRoutes {
         this.config();
     }
     config() {
-        this.router.get('/orden_compra', ordenController_1.default.getOrdenes);
-        this.router.post('/orden_compra', ordenController_1.default.create);
-        this.router.delete('/orden_compra:id', ordenController_1.default.delete);
-        this.router.put('/orden_compra:id', ordenController_1.default.update);
+        this.router.get('/', ordenController_1.default.getOrdenes);
+        this.router.post('/', ordenController_1.default.create);
+        this.router.delete('/:id', ordenController_1.default.delete);
+        this.router.put('/:id', ordenController_1.default.update);
     }
 }
 const ordenesRoutes = new OrdenesRoutes();
-exports.default = ordenesRoutes.router;
+exports.default = ordenesRoutes;

@@ -23,10 +23,10 @@ class Server {
         this.app.use(express_1.default.json());
     }
     routes() {
-        this.app.use('/', indexRoutes_1.default);
-        this.app.use('/clientes', clientesRoute_1.default);
-        this.app.use('/productos', productoRoute_1.default);
-        this.app.use('/orden_compra', ordenRoute_1.default);
+        this.app.use('/', indexRoutes_1.default.router);
+        this.app.use('/api/clientes', clientesRoute_1.default.router);
+        this.app.use('/api/productos', productoRoute_1.default.router);
+        this.app.use('/api/orden_compra', ordenRoute_1.default.router);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

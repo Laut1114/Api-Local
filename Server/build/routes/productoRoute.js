@@ -11,11 +11,11 @@ class ProductosRoutes {
         this.config();
     }
     config() {
-        this.router.get('/productos', productoController_1.default.getProductos);
-        this.router.post('/productos', productoController_1.default.create);
-        this.router.delete('/productos:id', productoController_1.default.delete);
-        this.router.put('/productos:id', productoController_1.default.update);
+        this.router.get('/', productoController_1.default.getProductos);
+        this.router.post('/', productoController_1.default.create);
+        this.router.delete('/:id', productoController_1.default.delete);
+        this.router.put('/:id', productoController_1.default.update);
     }
 }
 const productosRoutes = new ProductosRoutes();
-exports.default = productosRoutes.router;
+exports.default = productosRoutes;

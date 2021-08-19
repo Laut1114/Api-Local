@@ -10,5 +10,5 @@ class IndexRoutes {
         this.router.get('/', (req, res) => res.send("Pagina de Inicio"));
     }
 }
-const indexRoute = new IndexRoutes();
-exports.default = indexRoute.router;
+const indexRoutes = new IndexRoutes();
+exports.default = indexRoutes;

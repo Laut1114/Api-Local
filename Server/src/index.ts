@@ -1,10 +1,10 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import indexRoute from './routes/indexRoutes';
+import indexRoutes from './routes/indexRoutes';
 import clientesRoutes from './routes/clientesRoute';
-import productosRoutes from './routes/productoRoute';
-import ordenesRoutes from './routes/ordenRoute';
+import productoRoute from './routes/productoRoute';
+import ordenRoute from './routes/ordenRoute';
 
 class Server {
     public app: Application
@@ -22,10 +22,10 @@ class Server {
     }
 
     routes(): void {
-        this.app.use('/', indexRoute);
-        this.app.use('/clientes', clientesRoutes);
-        this.app.use('/productos', productosRoutes);
-        this.app.use('/orden_compra', ordenesRoutes);
+        this.app.use('/', indexRoutes.router);
+        this.app.use('/api/clientes', clientesRoutes.router);
+        this.app.use('/api/productos', productoRoute.router);
+        this.app.use('/api/orden_compra', ordenRoute.router);
     }
 
     start(): void {

@@ -12,5 +12,5 @@ class IndexRoutes {
     }
 }
 
-const indexRoute = new IndexRoutes();
-export default indexRoute.router;
+const indexRoutes = new IndexRoutes();
+export default indexRoutes;

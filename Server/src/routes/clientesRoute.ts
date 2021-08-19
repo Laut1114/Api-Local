@@ -1,6 +1,8 @@
 import { Router } from "express";
 import clientesController from "../controllers/clientesController";
 
+// Ruta: localhost:3000/clientes
+
 class ClientesRoutes {
     router: Router = Router();
 
@@ -9,12 +11,12 @@ class ClientesRoutes {
     }
 
     config(): void {
-        this.router.get('/clientes', clientesController.getCliente);
-        this.router.post('/clientes', clientesController.create);
-        this.router.delete('/clientes:id', clientesController.delete);
-        this.router.put('/clientes:id', clientesController.update);
+        this.router.get('/', clientesController.getCliente);
+        this.router.post('/', clientesController.create);
+        this.router.delete('/:id', clientesController.delete);
+        this.router.put('/:id', clientesController.update);
     }
 }
 
 const clientesRoutes = new ClientesRoutes();
-export default clientesRoutes.router;
+export default clientesRoutes;
