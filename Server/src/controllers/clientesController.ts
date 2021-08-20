@@ -11,25 +11,22 @@ class ClientesController {
     async create(req: Request, res: Response) {
         await pool.query('INSERT INTO cliente set ?', [req.body]);
         res.json({
-            ok: true,
             message: 'Cliente Guardado' 
         });
     }
 
     async delete(req: Request, res: Response) {
         const {id} = req.params;
-        await pool.query('DELETE FROM cliente WHERE id = ?', [id]);
+        await pool.query('DELETE FROM cliente where id_cliente = ?', [id]);
         res.json({
-            ok: true,
             message: 'Cliente Eliminado'
         });
     }
 
     async update(req: Request, res: Response) {
-        const { id } = req.params;
-        await pool.query('UPDATE FROM cliente WHERE id = ?', [id]);
+        const {id} = req.params;
+        await pool.query('UPDATE cliente SET ? WHERE id_cliente = ?', [req.body, id]);
         res.json({
-            ok: true,
             message: 'Cliente Actualizado'
         });
     }

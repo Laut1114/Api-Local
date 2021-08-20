@@ -20,11 +20,18 @@ class OrdenesController {
             res.json(ordenes);
         });
     }
+    //GET orden por id
+    getOrdenID(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const orden = yield database_1.default.query('SELECT id_cliente, id_producto, cantidad FROM orden WHERE id_orden = ?', [id]);
+            res.json(orden);
+        });
+    }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO orden set ?', [req.body]);
             res.json({
-                ok: true,
                 message: 'Nueva orden de compra agregada'
             });
         });
@@ -32,9 +39,8 @@ class OrdenesController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM orden WHERE id = ?', [id]);
+            yield database_1.default.query('DELETE FROM orden WHERE id_orden = ?', [id]);
             res.json({
-                ok: true,
                 message: 'Orden de compra elimanada'
             });
         });
@@ -42,9 +48,8 @@ class OrdenesController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE FROM orden WHERE id = ?', [id]);
+            yield database_1.default.query('UPDATE orden SET ? WHERE id_orden = ?', [req.body, id]);
             res.json({
-                ok: true,
                 message: 'Orden de compra actualizada'
             });
         });

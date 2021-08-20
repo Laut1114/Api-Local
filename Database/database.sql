@@ -26,6 +26,4 @@ CREATE TABLE orden(
   cantidad INT(4) NOT NULL
 );
 
-INSERT INTO orden(id_cliente, id_producto, cantidad) VALUES (3, 2, 4);
-
-SELECT * FROM orden, producto, cliente;
+SELECT * FROM cliente, producto, orden;

@@ -24,7 +24,6 @@ class ClientesController {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO cliente set ?', [req.body]);
             res.json({
-                ok: true,
                 message: 'Cliente Guardado'
             });
         });
@@ -32,9 +31,8 @@ class ClientesController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM cliente WHERE id = ?', [id]);
+            yield database_1.default.query('DELETE FROM cliente where id_cliente = ?', [id]);
             res.json({
-                ok: true,
                 message: 'Cliente Eliminado'
             });
         });
@@ -42,9 +40,8 @@ class ClientesController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE FROM cliente WHERE id = ?', [id]);
+            yield database_1.default.query('UPDATE cliente SET ? WHERE id_cliente = ?', [req.body, id]);
             res.json({
-                ok: true,
                 message: 'Cliente Actualizado'
             });
         });

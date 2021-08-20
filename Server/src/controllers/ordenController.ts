@@ -8,28 +8,32 @@ class OrdenesController {
         res.json(ordenes)
     }
 
+    //GET orden por id
+    async getOrdenID(req: Request, res: Response) {
+        const {id} = req.params;
+        const orden = await pool.query('SELECT id_cliente, id_producto, cantidad FROM orden WHERE id_orden = ?', [id]);
+        res.json(orden);
+    }
+
     async create(req: Request, res: Response) {
         await pool.query('INSERT INTO orden set ?', [req.body]);
         res.json({
-            ok: true,
             message: 'Nueva orden de compra agregada'
         });
     }
 
     async delete(req: Request, res: Response) {
-        const { id } = req.params;
-        await pool.query('DELETE FROM orden WHERE id = ?', [id]);
+        const {id} = req.params;
+        await pool.query('DELETE FROM orden WHERE id_orden = ?', [id]);
         res.json({
-            ok: true,
             message: 'Orden de compra elimanada'
         });
     }
 
     async update(req: Request, res: Response) {
-        const { id } = req.params;
-        await pool.query('UPDATE FROM orden WHERE id = ?', [id]);
+        const {id} = req.params;
+        await pool.query('UPDATE orden SET ? WHERE id_orden = ?', [req.body,id]);
         res.json({
-            ok: true,
             message: 'Orden de compra actualizada'
         });
     }

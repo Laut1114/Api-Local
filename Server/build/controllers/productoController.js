@@ -24,7 +24,6 @@ class ProductosController {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO producto set ?', [req.body]);
             res.json({
-                ok: true,
                 message: 'Producto Agregado'
             });
         });
@@ -32,9 +31,8 @@ class ProductosController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM producto WHERE id = ?', [id]);
+            yield database_1.default.query('DELETE FROM producto WHERE id_producto = ?', [id]);
             res.json({
-                ok: true,
                 message: 'Producto Eliminado'
             });
         });
@@ -42,9 +40,8 @@ class ProductosController {
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE FROM producto WHERE id = ?', [id]);
+            yield database_1.default.query('UPDATE producto SET ? WHERE id_producto = ?', [req.body, id]);
             res.json({
-                ok: true,
                 message: 'Producto Actualizado'
             });
         });

@@ -11,25 +11,22 @@ class ProductosController {
     async create(req: Request, res: Response) {
         await pool.query('INSERT INTO producto set ?', [req.body]);
         res.json({
-            ok: true,
             message: 'Producto Agregado'
         });
     }
 
     async delete(req: Request, res: Response) {
-        const { id } = req.params;
-        await pool.query('DELETE FROM producto WHERE id = ?', [id]);
+        const {id} = req.params;
+        await pool.query('DELETE FROM producto WHERE id_producto = ?', [id]);
         res.json({
-            ok: true,
             message: 'Producto Eliminado'
         });
     }
 
     async update(req: Request, res: Response) {
-        const { id } = req.params;
-        await pool.query('UPDATE FROM producto WHERE id = ?', [id]);
+        const {id} = req.params;
+        await pool.query('UPDATE producto SET ? WHERE id_producto = ?', [req.body, id]);
         res.json({
-            ok: true,
             message: 'Producto Actualizado'
         });
     }

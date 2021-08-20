@@ -1,6 +1,8 @@
 import { Router } from "express";
 import productosController from "../controllers/productoController";
 
+// Ruta: localhost:3000/api/productos
+
 class ProductosRoutes {
     router: Router = Router();
 
@@ -10,7 +12,7 @@ class ProductosRoutes {
 
     config(): void {
         this.router.get('/', productosController.getProductos);
-        this.router.post('/', productosController.create);
+        this.router.post('/nuevo_producto', productosController.create);
         this.router.delete('/:id', productosController.delete);
         this.router.put('/:id', productosController.update);
     }
